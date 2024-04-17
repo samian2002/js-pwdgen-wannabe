@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Generatore di Password</title>
+</head>
+<body>
+
+    <div>
+        <h1 class="flex">Generatore di Password non affidabili </h1>
+        <div class="flex">
+            <form id="passwordForm">
+                <label class="mb" for="nome">Nome:</label>
+                <input class="mb" type="text" id="nome" name="nome"><br>
+    
+                <label class="mb" for="cognome">Cognome:</label>
+                <input class="mb" type="text" id="cognome" name="cognome"><br>
+    
+                <label fclass="mb" or="colore">Colore Preferito:</label>
+                <input class="mb" type="text" id="colore" name="colore"><br>
+    
+                <button class="mb" type="submit">Genera Password</button>
+            </form>
+    
+            <div id="passwordContainer"></div>
+        </div>
+        
+    </div>
+
+
+<script>
+    document.getElementById("passwordForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        var nome = document.getElementById("nome").value;
+        var cognome = document.getElementById("cognome").value;
+        var colore = document.getElementById("colore").value;
+        
+        var password = generaPassword(nome, cognome, colore);
+        
+        document.getElementById("passwordContainer").innerText = "La tua password generata è: " + password;
+    });
+
+    function generaPassword(nome, cognome, colore) {
+        var password = nome + cognome + colore + "24";
+        return password;
+    }
+</script>
+
+</body>
+</html>
